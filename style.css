@@ -1,3 +1,55 @@
+:root {
+  --white: #ffffff;
+  --winter: #9eb8d9;
+  --wedding: #a25772;
+  --navyblue: #161a30;
+  --grey: #b6bbc4;
+  --milkgrey: #f0ece5;
+  --sage: #c8e4b2;
+  --green: #65b741;
+  --lightgreen: #bed754;
+  --teal: #9ed2be;
+  --darkteal: #5eaaa8;
+  --blue: #0174be;
+  --yellow: #ffc436;
+  --orange: #e36414;
+  --darkorange: #ff5f00;
+  --red: #b80000;
+  --softpink: #ffd0d0;
+  --pink: #ff9eaa;
+  --darkred: #b20600;
+  --maroon: #750e21;
+  --black: #191919;
+  --beige: #e6e2c3;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: var(--milkgrey);
+}
+
+.logo {
+  padding: 1rem 1rem;
+}
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.logo-image {
+  border: 1px solid;
+  border-radius: 5%;
+  object-fit: contain;
+}
+
 .title {
   font-size: 2rem;
   color: white;
@@ -15,5 +67,5 @@
   width: 250px;
   border: 1px solid rgb(230, 214, 214);
   border-radius: 0.3rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
