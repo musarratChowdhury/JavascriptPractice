@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 console.log("HELLO WORLD");
 Opentip.styles.myErrorStyle = {
   extends: "standard",
@@ -29,3 +30,24 @@ anime({
   loop: true,
   easing: "easeInOutSine",
 });
+=======
+let x = 100;
+let y = 101;
+let z = 99;
+
+if (x > y) {
+  // x is greater than y
+  if (x > z) {
+    console.log("x is the greatest");
+  } else {
+    console.log("z is the greatest");
+  }
+} else {
+  //y is greater than x
+  if (y > z) {
+    console.log("y is the greatest");
+  } else {
+    console.log("z is the greatest");
+  }
+}
+>>>>>>> 687765db851a88fc889885409c64b8324dd7a661
