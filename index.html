@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Js Practice</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/opentip/css/opentip.css" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css" />
+    <link
+      rel="stylesheet"
+      href="assets/bootstrap/css/bootstrap-reboot.min.css"
+    />
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
   </head>
   <body>
     <div class="logo">
@@ -18,9 +26,61 @@
         />
       </div>
     </div>
-    <div class="title">HELLO WORLD</div>
-    <div class="subtitle">HELLO Musarrat</div>
-    <p>HELLO It is fts</p>
+    <div class="ball-container container-fluid">
+      <div class="loop-alternate-infinity"></div>
+    </div>
+    <div class="container animate">
+      <div class="row">
+        <div class="col-sm">One of three columns</div>
+        <div class="col-sm">One of three columns</div>
+        <div class="col-sm">One of three columns</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header bg-info text-white h4">Featured</div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <ul class="list-group" style="width: 800px" id="target-element">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        Cras justo odio
+        <span class="badge badge-primary badge-pill">14</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        Dapibus ac facilisis in
+        <span class="badge badge-primary badge-pill">2</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        Morbi leo risus
+        <span class="badge badge-primary badge-pill">1</span>
+      </li>
+    </ul>
+    <button id="button" aria-describedby="tooltip">My button</button>
+
+    <div id="target-element">"hello"</div>
+
+    <p id="my-trigger-element">HELLO It is fts</p>
+    <!-- jquery -->
+    <script src="library/jquery-3.7.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- opentip -->
+    <script src="library/opentip-jquery.min.js"></script>
+    <!-- popper -->
+    <script src="library/popper-2.11.8.js"></script>
+    <!-- anime js -->
+    <script src="library/anime.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
