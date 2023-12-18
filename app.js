@@ -22,7 +22,7 @@ anime({
   targets: ".animate",
   translateX: 250,
 });
-anime({
+var animation = anime({
   targets: ".loop-alternate-infinity",
   translateX: 400,
   direction: "alternate",
