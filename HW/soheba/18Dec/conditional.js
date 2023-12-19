@@ -54,15 +54,14 @@ if (inputCharacter == "a") {
 //check if a Quadrilateral is square or rectangle or others not by given values of its 4 arms
 let A = 12;
 let B = 13;
-let C = 12;
-let D = 13;
+let C = 13;
+let D = 12;
 
-// if(true)
-// {
-// console.log("square")
-// }else if(true)
-// {
-// console.log("rectangle")
-// }else{
-//     console.log("Others")
-// }
+//A==B&&C==D || A==C&&B==D || A==D&&B==C
+if (A == B && B == C && C == D) {
+  console.log("square");
+} else if ((A == B && C == D) || (A == C && B == D) || (A == D && B == C)) {
+  console.log("rectangle");
+} else {
+  console.log("Others");
+}
