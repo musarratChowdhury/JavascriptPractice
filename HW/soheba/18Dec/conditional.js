@@ -65,3 +65,20 @@ if (A == B && B == C && C == D) {
 } else {
   console.log("Others");
 }
+
+
+
+//traingle 
+
+let X = 10;
+let Y = 10;
+let Z = 10;
+
+if ((X == Y) && (Y == Z)) {
+  console.log("traingle");
+}else if ((X == Y) || (Y == Z) || (Z == X)) {
+  console.log("Double tringlee");
+} else {
+  console.log("unequal");
+}
+
