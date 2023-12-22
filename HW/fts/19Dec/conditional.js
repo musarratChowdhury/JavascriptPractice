@@ -56,3 +56,11 @@ let D = 12;
 let X = 10;
 let Y = 10;
 let Z = 10;
+
+if (X == Y && X == Z) {
+    console.log("equal triangle");
+  } else if (X == Y || X==Z || Y==Z) {
+    console.log("BILATERAL ");
+  } else {
+    console.log("unequal");
+  }
