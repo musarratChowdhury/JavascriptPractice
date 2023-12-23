@@ -4,60 +4,53 @@
 // Temperature Converter Function:
 // Write a function that converts Celsius to Fahrenheit or Fahrenheit to Celsius based on user input and returns the converted temperature.
 
-
-
 // Greeting Function:
 // Develop a function that takes a name as an argument and returns a personalized greeting message.
 
 function message(name) {
-    return name + " " +"congratulations!" ;
+  return name + " " + "congratulations!";
 }
 const userName = "Muhit";
 const greetingMessage = message(userName);
-console.log(greetingMessage );
+console.log(greetingMessage);
 
-// Even or Odd Checker:
-// Build a function that takes an integer as input and returns whether the number is even or odd.
+// // Even or Odd Checker:
+// // Build a function that takes an integer as input and returns whether the number is even or odd.
 function checkEvenOrOdd(number) {
-    if (number % 2== 0) {
-        return "even";
-    } else {
-        return "odd";
-    }
+  if (number % 2 == 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
 }
 const TakeANumber = 13;
 const result = checkEvenOrOdd(TakeANumber);
 console.log(result);
-
 
 // Largest among Three Numbers:
 // Create a function that takes three numbers as arguments and returns the largest among them.
 
 // 100,101,102 ; 102>101>100
 function TakeThreeNumbers(number1, number2, number3) {
-    if (number2>number1){
-        if (number2>number3){
-            console.log("number 2 is the largest");
-        }else{
-            console.log("number 3 is largest");
-        }
-    
-    }else{
-        console.log("number 1 > number 2");
-        if(number1>number3){
-            console.log("number 1 is the largest");
-        }else{
-            console.log("number 3 is the largest");
-        }
+  if (number2 > number1) {
+    if (number2 > number3) {
+      console.log(number2, "is the largest");
+    } else {
+      console.log(number3, " is largest");
     }
-
+  } else {
+    // console.log("number 1 > number 2");
+    if (number1 > number3) {
+      console.log(number1, " is the largest");
+    } else {
+      console.log(number3, " is the largest");
+    }
+  }
 }
-const number1=100;
-const number2=1001;
-const number3=12033;
 
-    
-
+TakeThreeNumbers(100, 50, 400);
+TakeThreeNumbers(1000, 50, 400);
+TakeThreeNumbers(100, 5000, 400);
 
 // String Reversal Function:
 // Write a function that takes a string as input and returns the reverse of that string.
