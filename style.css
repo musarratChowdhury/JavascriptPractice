@@ -137,3 +137,24 @@ body {
   background-color: var(--yellow);
   font-size: 14px;
 }
+.gallery-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c81883;
+  color: white;
+}
+.gallery-title-text {
+  font-family: "Sriracha", cursive;
+  font-size: 2rem;
+}
+.gallery-image {
+  width: 400px;
+  height: 600px;
+}
+.image-container {
+  align-items: center;
+}
+.slider-controls a {
+  background-color: #919191;
+}
