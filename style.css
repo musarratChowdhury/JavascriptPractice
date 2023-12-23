@@ -11,7 +11,8 @@
   --teal: #9ed2be;
   --darkteal: #5eaaa8;
   --blue: #0174be;
-  --yellow: #ffc436;
+  --skyblue: #61c3ff;
+  --yellow: #ffc730;
   --orange: #e36414;
   --darkorange: #ff5f00;
   --red: #b80000;
@@ -20,6 +21,7 @@
   --darkred: #b20600;
   --maroon: #750e21;
   --black: #191919;
+  --black-matte: #252423;
   --beige: #e6e2c3;
 }
 
@@ -28,10 +30,10 @@
 *::before {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  box-sizing: border-box;
   height: 100vh;
   background-color: var(--milkgrey);
 }
@@ -91,4 +93,47 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+.animejs-test {
+  background-color: var(--black-matte);
+}
+.controls {
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.controls button {
+  position: relative;
+  display: block;
+  margin: 0 0 0 -1px;
+  padding: 5px 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 1px solid var(--skyblue);
+  background-color: transparent;
+  color: var(--skyblue);
+}
+.controls button:hover {
+  background-color: var(--skyblue);
+  color: #161a30;
+}
+.shadow {
+  position: absolute;
+  opacity: 0.2;
+}
+.ball-container {
+  background-color: var(--black);
+}
+.square,
+.circle {
+  pointer-events: none;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  margin: 1px;
+  background-color: var(--yellow);
+  font-size: 14px;
 }

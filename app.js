@@ -1,5 +1,13 @@
-<<<<<<< HEAD
-console.log("HELLO WORLD");
+$(".play-btn").on("click", function () {
+  easingDemo.play();
+});
+$(".pause-btn").on("click", function () {
+  easingDemo.pause();
+});
+$(".restart-btn").on("click", function () {
+  easingDemo.restart();
+});
+
 Opentip.styles.myErrorStyle = {
   extends: "standard",
   color: "black",
@@ -29,25 +37,31 @@ anime({
   direction: "alternate",
   loop: true,
   easing: "easeInOutSine",
+  autoplay: false,
 });
-=======
-let x = 100;
-let y = 101;
-let z = 99;
 
-if (x > y) {
-  // x is greater than y
-  if (x > z) {
-    console.log("x is the greatest");
-  } else {
-    console.log("z is the greatest");
-  }
-} else {
-  //y is greater than x
-  if (y > z) {
-    console.log("y is the greatest");
-  } else {
-    console.log("z is the greatest");
-  }
-}
->>>>>>> 687765db851a88fc889885409c64b8324dd7a661
+var myobject = {
+  prop1: 0,
+  prop2: "0%",
+};
+
+var objRender = anime({
+  targets: myobject,
+  autoplay: false,
+  prop1: 10,
+  prop2: "100%",
+  easing: "linear",
+  round: 1,
+  update: function () {
+    console.log(myobject.prop1, myobject.prop2);
+  },
+});
+console.log(objRender);
+
+var easingDemo = anime({
+  targets: ".easing-demo",
+  translateX: 250,
+  loop: true,
+  duration: 1000,
+  easing: "easeOutElastic",
+});
