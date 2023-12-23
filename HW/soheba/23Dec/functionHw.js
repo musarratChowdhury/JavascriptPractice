@@ -3,6 +3,7 @@
 
 // Temperature Converter Function:
 // Write a function that converts Celsius to Fahrenheit or Fahrenheit to Celsius based on user input and returns the converted temperature.
+
 function TemperatureConverter(celsius) {
   let fahrenheit = (celsius * 9) / 5 + 32;
   return fahrenheit;
@@ -20,8 +21,8 @@ const userName = "Muhit";
 const greetingMessage = message(userName);
 console.log(greetingMessage);
 
-// Even or Odd Checker:
-// Build a function that takes an integer as input and returns whether the number is even or odd.
+// // Even or Odd Checker:
+// // Build a function that takes an integer as input and returns whether the number is even or odd.
 function checkEvenOrOdd(number) {
   if (number % 2 == 0) {
     return "even";
@@ -56,6 +57,10 @@ function TakeThreeNumbers(number1, number2, number3) {
 const number1 = 100;
 const number2 = 1001;
 const number3 = 12033;
+
+TakeThreeNumbers(100, 50, 400);
+TakeThreeNumbers(1000, 50, 400);
+TakeThreeNumbers(100, 5000, 400);
 
 // String Reversal Function:
 // Write a function that takes a string as input and returns the reverse of that string.
