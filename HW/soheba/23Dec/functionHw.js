@@ -91,3 +91,5 @@ LeapYearChecker(2022);
 LeapYearChecker(2020);
 LeapYearChecker(1999);
 LeapYearChecker(1997);
+
+//print even and odd
