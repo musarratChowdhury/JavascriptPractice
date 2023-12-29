@@ -1,0 +1,97 @@
+@import "https://fonts.googleapis.com/css?family=Share+Tech+Mono";
+
+body {
+  background: #c2c2d6;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+.calculator {
+  width: 335px;
+  height: 382px;
+}
+.calculator {
+  border: 2px solid #47476b;
+  padding: 5px;
+  background: black;
+  position: relative;
+}
+.formulaScreen {
+  min-height: 20px;
+  font-family: digital;
+  font-size: 20px;
+  color: orange;
+  text-align: right;
+  vertical-align: text-top;
+  line-height: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.outputScreen {
+  font-size: 29px;
+  font-family: digital;
+  color: white;
+  text-align: right;
+  line-height: 35px;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  width: 100%;
+}
+
+.button-container button {
+  width: 100%;
+  height: 65px;
+  background-color: #4d4d4d;
+  position: relative;
+  color: white;
+  outline: 1px solid black;
+  border: none;
+  font-family: Share Tech Mono, monospace;
+  font-size: 20px;
+  cursor: default;
+}
+.button-container button:hover {
+  color: black;
+  outline: 0.05em solid grey;
+  z-index: 3;
+}
+#clear {
+  grid-column: 1 / span 2;
+}
+#zero {
+  grid-row: 5;
+  grid-column: 1 / span 2;
+}
+/* #decimal {
+  grid-row: 5;
+  grid-column: 3 / span 1;
+} */
+#equals {
+  grid-column: 4;
+  grid-row: 4 / span 2;
+  height: 130px !important;
+}
+.author {
+  text-align: center;
+  font-family: Share Tech Mono, sans;
+  margin-top: 15px;
+}
+.author a {
+  text-decoration: none;
+  color: #00264d;
+  line-height: 26px;
+}

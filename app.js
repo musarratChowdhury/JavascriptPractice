@@ -143,3 +143,45 @@ function addThreeStrings(string1, string2, string3) {
 function getStringLength(string) {
   return string.length;
 }
+
+function AddTwoNumbers(num1, num2 = 10) {
+  if (typeof num1 == "string" || typeof num2 == "string") {
+    console.log("Input is not a number");
+    return;
+  }
+  console.log(num1 + num2);
+}
+
+function DeductFrom100(num) {
+  if (num > 100) {
+    return num - 100;
+  }
+  return 100 - num;
+}
+AddTwoNumbers(11);
+
+function avgOf10Numbers(
+  num1,
+  num2,
+  num3,
+  num4,
+  num5,
+  num6,
+  num7,
+  num8,
+  num9,
+  num10
+) {
+  let sum =
+    num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10;
+  let avg = sum / 10;
+  return avg;
+}
+
+function avgFromArr(inputArr) {
+  if (inputArr.length == undefined) {
+    console.log("Not an array");
+  } else {
+    return inputArr.length;
+  }
+}
