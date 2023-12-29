@@ -41,6 +41,8 @@ window.onload = function () {
         // Update and draw the sprite
         ch2.updateFrame();
         ch2.draw();
+        ch2.movement();
+        ch2.checkForBoundaries();
 
         // Update the last update time
         lastUpdateTime = currentTime - (deltaTime % updateInterval);
@@ -54,37 +56,6 @@ window.onload = function () {
     animate(0); // Pass 0 to start immediately
   };
 };
-
-// function renderSpriteToCanvas(row, col) {
-//   const spriteWidth = 274.286; // Width of each sprite in the sheet (adjust according to your sprite sheet)
-//   const spriteHeight = 221.286; // Height of each sprite in the sheet (adjust according to your sprite sheet)
-
-//   //   console.log(canvas);
-//   //   console.log(character);
-//   ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   if (character) {
-//     ctx.drawImage(
-//       character,
-//       col * spriteWidth, // X position of the sprite in the sheet
-//       row * spriteHeight, // Y position of the sprite in the sheet
-//       spriteWidth, // Width of the sprite
-//       spriteHeight, // Height of the sprite
-//       0, // X position on the canvas to draw the sprite
-//       0, // Y position on the canvas to draw the sprite
-//       spriteWidth, // Width to draw on the canvas
-//       spriteHeight // Height to draw on the canvas
-//     );
-//   }
-// }
-// let i = 0;
-// setInterval(() => {
-//   if (i < 7) {
-//     renderSpriteToCanvas(2, i);
-//     i++;
-//   } else {
-//     i = 0;
-//   }
-// }, 100);
 
 class SPRITEIMAGE {
   constructor(
@@ -118,6 +89,18 @@ class SPRITEIMAGE {
     this.gravity = 0;
     this.gravitySpeed = 0;
     this.keyMoveUp = false;
+    this.speed = 30;
+    this.allDirections = {
+      left: { x: -1, y: 0 },
+      right: { x: 1, y: 0 },
+      up: { x: 0, y: -1 },
+      down: { x: 0, y: 1 },
+      upLeft: { x: -1, y: -1 },
+      upRight: { x: 1, y: -1 },
+      downLeft: { x: -1, y: 1 },
+      downRight: { x: 1, y: 1 },
+    };
+    this.currentDirection = this.allDirections.right;
   }
   draw() {
     // this.updateFrame()
@@ -133,86 +116,79 @@ class SPRITEIMAGE {
       this.width,
       this.height
     );
-
-    // if (this.type == "zombie") {
-    //   this.updateFrame();
-    //   ctx.drawImage(
-    //     this.image,
-    //     this.srcX,
-    //     this.srcY,
-    //     this.swidth,
-    //     this.sheight,
-    //     this.x,
-    //     this.y,
-    //     this.width,
-    //     this.height
-    //   );
-    // } else {
-    //   if (moveleft) {
-    //     this.shiftRow(3);
-    //     this.updateFrame();
-    //     ctx.drawImage(
-    //       this.image,
-    //       this.srcX,
-    //       this.srcY,
-    //       this.swidth,
-    //       this.sheight,
-    //       this.x,
-    //       this.y,
-    //       this.width,
-    //       this.height
-    //     );
-    //   } else if (moveright) {
-    //     faceleft = false;
-    //     this.shiftRow(2);
-    //     this.updateFrame();
-    //     ctx.drawImage(
-    //       this.image,
-    //       this.srcX,
-    //       this.srcY,
-    //       this.swidth,
-    //       this.sheight,
-    //       this.x,
-    //       this.y,
-    //       this.width,
-    //       this.height
-    //     );
-    //   } else if (jump) {
-    //     this.shiftRow(1);
-    //     this.updateFrame();
-    //     ctx.drawImage(
-    //       this.image,
-    //       this.srcX,
-    //       this.srcY,
-    //       this.swidth,
-    //       this.sheight,
-    //       this.x,
-    //       this.y,
-    //       this.width,
-    //       this.height
-    //     );
-    //   } else {
-    //     if (faceleft) {
-    //       this.srcY = 0;
-    //       this.shiftCol(2);
-    //     } else {
-    //       this.srcY = 0;
-    //       this.srcX = 0;
-    //     }
-    //     ctx.drawImage(
-    //       this.image,
-    //       this.srcX,
-    //       this.srcY,
-    //       this.swidth,
-    //       this.sheight,
-    //       this.x,
-    //       this.y,
-    //       this.width,
-    //       this.height
-    //     );
-    //   }
-    // }
   }
+  movement() {
+    if (this.currentDirection.x !== 0 || this.currentDirection.y !== 0) {
+      this.x += this.currentDirection.x * this.speed;
+      this.y += this.currentDirection.y * this.speed;
+
+      // Adjust shiftRow based on direction (modify these values according to your needs)
+      if (this.currentDirection.x === -1 && this.currentDirection.y === 0) {
+        this.shiftRow(1); // Left
+      } else if (
+        this.currentDirection.x === 1 &&
+        this.currentDirection.y === 0
+      ) {
+        this.shiftRow(2); // Right
+      } else if (
+        this.currentDirection.x === 0 &&
+        this.currentDirection.y === -1
+      ) {
+        this.shiftRow(0); // Up
+      } else if (
+        this.currentDirection.x === 0 &&
+        this.currentDirection.y === 1
+      ) {
+        this.shiftRow(0); // Down
+      } else if (
+        this.currentDirection.x === -1 &&
+        this.currentDirection.y === -1
+      ) {
+        this.shiftRow(4); // Up Left
+      } else if (
+        this.currentDirection.x === 1 &&
+        this.currentDirection.y === -1
+      ) {
+        this.shiftRow(5); // Up Right
+      } else if (
+        this.currentDirection.x === -1 &&
+        this.currentDirection.y === 1
+      ) {
+        this.shiftRow(4); // Down Left
+      } else if (
+        this.currentDirection.x === 1 &&
+        this.currentDirection.y === 1
+      ) {
+        this.shiftRow(5); // Down Right
+      }
+    }
+  }
+
+  checkForBoundaries() {
+    let rightborder = canvas.width - this.width;
+    let bottomborder = canvas.height - this.height;
+
+    if (
+      this.y < 0 ||
+      this.y > bottomborder ||
+      this.x > rightborder ||
+      this.x < 0
+    ) {
+      // If hitting any boundary, adjust the currentDirection
+      this.currentDirection = this.getRandomDirection();
+
+      // Adjust the object's position to stay within the boundaries
+      this.x = Math.max(0, Math.min(this.x, rightborder));
+      this.y = Math.max(0, Math.min(this.y, bottomborder));
+    }
+  }
+
+  getRandomDirection() {
+    const keys = Object.keys(this.allDirections);
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+    return this.allDirections[randomKey];
+  }
+
   updateFrame() {
     if (this.curFrame >= this.frameCount) {
       this.curFrame = 0;
@@ -241,111 +217,6 @@ class SPRITEIMAGE {
       this.gravitySpeed = -52;
       this.gravity = +12;
       return (this.keyMoveUp = true);
-    }
-  }
-  hitbottom() {
-    let rockbottom = CANVAS_HEIGHT - this.height;
-    if (this.y > rockbottom) {
-      this.y = rockbottom;
-      this.gravitySpeed = -(this.gravitySpeed * this.bounce);
-      return (this.keyMoveUp = false);
-    }
-  }
-  hitBorder() {
-    let rightborder = CANVAS_WIDTH - this.width;
-
-    if (this.y < 0) {
-      this.y = 0;
-    }
-
-    if (this.x > rightborder) {
-      this.x = rightborder;
-    }
-    if (this.x < 0) {
-      this.x = 0;
-    }
-  }
-  newpos() {
-    this.gravitySpeed += this.gravity;
-    this.y += this.gravitySpeed;
-  }
-  landOn(otherobj) {
-    if (otherobj.type == "ground" || otherobj.type == "box") {
-      let rockbottom = otherobj.y - this.height; //this.y=otherobj.y-this.height
-
-      if (
-        this.x + this.width > otherobj.x &&
-        this.x < otherobj.x + otherobj.width
-      ) {
-        if (
-          this.y > rockbottom &&
-          this.y + this.height < otherobj.y + otherobj.height
-        ) {
-          this.y = rockbottom;
-
-          this.gravitySpeed = -(this.gravitySpeed * this.bounce);
-          return (this.keyMoveUp = false);
-        }
-      }
-    }
-    if (otherobj.type == "danger") {
-      let rockbottom = otherobj.y - this.height; //this.y=otherobj.y-this.height
-
-      if (
-        this.x + this.width > otherobj.x &&
-        this.x < otherobj.x + otherobj.width
-      ) {
-        if (
-          this.y > rockbottom &&
-          this.y + this.height < otherobj.y + otherobj.height
-        ) {
-          this.y = rockbottom;
-          console.log("gameOver");
-          gameOver = true;
-        }
-      }
-    }
-  }
-  crashWith(otherobj) {
-    var myleft = this.x;
-    var myright = this.x + (this.width - 50);
-    var mytop = this.y;
-    var mybottom = this.y + (this.height - 20);
-    var otherleft = otherobj.x;
-    var otherright = otherobj.x + otherobj.width;
-    var othertop = otherobj.y;
-    var otherbottom = otherobj.y + otherobj.height;
-    var crash = true;
-    if (
-      mybottom < othertop ||
-      mytop > otherbottom ||
-      myright < otherleft ||
-      myleft > otherright
-    ) {
-      crash = false;
-    }
-    return crash;
-  }
-  getsDiamondChk(Diamonds) {
-    Diamonds.forEach((Diamond, i) => {
-      if (this.crashWith(Diamond)) {
-        Diamonds.splice(i, 1);
-        i--;
-        score += 10;
-      }
-    });
-  }
-  zombieMove(ground) {
-    if (this.moveleftZ) {
-      this.x -= 12;
-    } else {
-      this.x += 12;
-    }
-    if (this.x <= ground.x) {
-      this.moveleftZ = false;
-    }
-    if (this.x + this.width >= ground.x + ground.width) {
-      this.moveleftZ = true;
     }
   }
 }
