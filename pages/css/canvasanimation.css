@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Arcade";
+  src: url("../css/8-bitArcadeIn.ttf") format("woff");
+  /* You can add additional font formats here (e.g., woff2, ttf) for better browser support */
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arcade";
+}
