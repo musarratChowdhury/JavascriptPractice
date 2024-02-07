@@ -21,4 +21,15 @@ function getCheapestPhone(phonesArr) {
   return minimumPricePhone;
 }
 
+function totalPriceCalculator(priceArr) {
+  let sum = 0;
+
+  for (let i = 0; i < priceArr.length; i++) {
+    sum += priceArr[i].price;
+  }
+
+  return sum;
+}
+
 console.log(getCheapestPhone(phones));
+console.log(totalPriceCalculator(phones));
