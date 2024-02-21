@@ -42,7 +42,7 @@ let equalsBtn = document.getElementById("equals");
 let decimalBtn = document.getElementById("decimal");
 let addBtn = document.getElementById("add");
 let divideBtn = document.getElementById("divide");
-// let multiplyyBtn = getElementById("multiplyy");
+let multiplyyBtn = document.getElementById("multiplyy");
 
 console.log(displayBtn);
 
@@ -173,9 +173,9 @@ divideBtn.addEventListener("click", () => {
   displayBtn.innerText = divideBtn.innerText;
 });
 
-// // multiplyy button
+// multiplyy button
 
-// multiplyyBtn.addEventListener("click", () => {
-//   console.log(multiplyyBtn.innerText);
-//   displayBtn.innerText = multiplyyBtn.innerText;
-// });
+multiplyyBtn.addEventListener("click", () => {
+  console.log(multiplyyBtn.innerText);
+  displayBtn.innerText = multiplyyBtn.innerText;
+});
