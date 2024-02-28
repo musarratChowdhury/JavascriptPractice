@@ -68,3 +68,26 @@ console.log(abdulKaderJson);
 console.log("rahim", rahim);
 console.log(masud);
 console.log(abdulKader);
+
+let x = "200";
+let arr = [3, 4, 5];
+
+let y = x;
+y++;
+
+let arr2 = arr;
+arr2.push(223);
+
+function changeValue(num) {
+  num = 199999;
+}
+
+function changeValueOfArr(inputArr) {
+  inputArr.push(2000000);
+}
+
+changeValue(x);
+changeValueOfArr(arr);
+//pass by value
+console.log(typeof x);
+console.log(arr);
