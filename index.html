@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./jquery-ui.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -133,8 +134,97 @@
       direction="1"
       mode="normal"
     ></lottie-player>
+    <!-- Jquery Datepicker -->
+    <span class="ui-icon ui-icon-alert">GG</span>
+    <div id="datepicker"></div>
+    <div>
+      <input id="autocomplete" title='type "a"' />
+    </div>
+    <!-- bootstrap accordion -->
+    <div class="" id="wrapper">
+      <button
+        class="btn btn-block text-left"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapseOne"
+        aria-expanded="false"
+        aria-controls="collapseOne"
+      >
+        Collapsible Group Item #1
+      </button>
+
+      <div
+        id="collapseOne"
+        class="collapse"
+        aria-labelledby="headingOne"
+        data-parent="#wrapper"
+      >
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ipsam
+        est dolor dicta dignissimos deleniti accusamus. Nihil error a
+        exercitationem possimus, quo aspernatur magni laudantium aut repellendus
+        ratione asperiores quam.
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-block text-left collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Collapsible Group Item #2
+            </button>
+          </h2>
+        </div>
+        <div
+          id="collapseTwo"
+          class="collapse"
+          aria-labelledby="headingTwo"
+          data-parent="#wrapper"
+        >
+          <div class="card-body">
+            Some placeholder content for the second accordion panel. This panel
+            is hidden by default.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-block text-left collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Collapsible Group Item #3
+            </button>
+          </h2>
+        </div>
+        <div
+          id="collapseThree"
+          class="collapse"
+          aria-labelledby="headingThree"
+          data-parent="#wrapper"
+        >
+          <div class="card-body">
+            And lastly, the placeholder content for the third and final
+            accordion panel. This panel is hidden by default.
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- jquery -->
     <script src="library/jquery-3.7.1.min.js"></script>
+    <script src="library/jquery-ui.js"></script>
     <!-- bootstrap -->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- opentip -->

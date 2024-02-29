@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="../assets/bootstrap/css/bootstrap-reboot.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="dropdown-container">
+      <div
+        class="btn btn-danger btn-sm toggle-btn"
+        type="button"
+        data-target="#collapsable-content"
+        data-toggle="collapse"
+      >
+        Toggle
+      </div>
+      <div class="collapse" id="collapsable-content">
+        <div class="card card-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+          placeat ipsum delectus perspiciatis beatae, vero consequatur? Dolores
+          maxime modi obcaecati excepturi, nemo eum saepe dicta! Beatae quis
+          fugiat labore aspernatur.
+        </div>
+      </div>
+    </div>
+    <script>
+      class DropDown {
+        constructor(content, containerEljq) {
+          this.content = content;
+          this.containerEljq = containerEljq;
+        }
+
+        prepareHtml() {
+          // Create the toggle button
+          const toggleBtn = $("<div>")
+            .addClass("btn btn-danger btn-sm toggle-btn")
+            .attr("type", "button")
+            .attr("data-target", "#collapsable-content")
+            .attr("data-toggle", "collapse")
+            .text("Toggle");
+
+          // Create the collapsible content
+          const collapsibleContent = $("<div>")
+            .addClass("collapse")
+            .attr("id", "collapsable-content")
+            .html(`<div class="card card-body">${this.content}</div>`);
+
+          // Append the toggle button and collapsible content to the container
+          this.containerEljq.append(toggleBtn);
+          this.containerEljq.append(collapsibleContent);
+        }
+        prepareWithWrapper() {
+          const wrapper = $(`<div>`);
+          // Create the toggle button
+          const toggleBtn = $("<div>")
+            .addClass("btn btn-danger btn-sm toggle-btn")
+            .attr("type", "button")
+            .attr("data-target", "#collapsable-content")
+            .attr("data-toggle", "collapse")
+            .text("Toggle");
+
+          // Create the collapsible content
+          const collapsibleContent = $("<div>")
+            .addClass("collapse")
+            .attr("id", "collapsable-content")
+            .html(`<div class="card card-body">${this.content}</div>`);
+
+          wrapper.append(toggleBtn);
+          wrapper.append(collapsibleContent);
+        }
+        prepareWithCustomBtn(buttonEljq) {
+          const collapsibleContent = $("<div>")
+            .addClass("collapse")
+            .attr("id", "collapsable-content")
+            .html(`<div class="card card-body">${this.content}</div>`);
+
+          buttonEljq
+            .attr("data-target", `#${collapsibleContent.get("id")}`)
+            .attr("data-toggle", "collapse");
+        }
+        prepareWithCustomBtnUniqId(buttonEljq, uniqId) {
+          const collapsibleContent = $("<div>")
+            .addClass("collapse")
+            .attr("id", `collapsable-content-${uniqId}`)
+            .html(`<div class="card card-body">${this.content}</div>`);
+
+          buttonEljq
+            .attr("data-target", `#${collapsibleContent.get("id")}`)
+            .attr("data-toggle", "collapse");
+        }
+      }
+      var toggleBtnText = "";
+      var content;
+      const defaultToggleButton = $(`<div
+        class="btn btn-danger btn-sm toggle-btn"
+        type="button"
+        data-target="#collapsable-content"
+        data-toggle="collapse"
+      >
+        Toggle
+      </div>`);
+    </script>
+    <!-- jquery -->
+    <script src="../library/jquery-3.7.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
