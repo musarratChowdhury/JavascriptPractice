@@ -5,13 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="./css/calculator.css" />
+    <script type="module" src="./js/calculator.js"></script>
+    <script src="../meeting/array.js"></script>
+    <!-- tailwind custom color -->
+    <!-- <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "gradient-start": "#FF8938",
+              "gradient-end": "#F00",
+            },
+          },
+        },
+      };
+    </script> -->
   </head>
   <body>
     <div class="calculator">
+      <input type="text" name="" />
       <div class="formulaScreen">8/9=0.888888888889</div>
       <div class="outputScreen" id="display">0.888888888889</div>
-      <div>
-        <div class="button-container">
+      <div id="textinput">
+        <!-- <div>
+          <p>area = a * b</p>
+          <div>
+            <input
+              class="w-24"
+              type="text"
+              name=""
+              id="calculationA"
+              placeholder="calA"
+            />
+            <input
+              class="w-24"
+              type="text"
+              name=""
+              id="calculationB"
+              placeholder="calB"
+            />
+          </div>
+          <div>
+            <p>area: <span id="calculate-calculation">0</span></p>
+          </div>
+          <div class="card-action">
+            <button onclick="calculateArea()" class="btn btn-primary w-full">
+              calculator
+            </button>
+          </div>
+        </div> -->
+        <div class="button-container" id="inputButton">
           <button
             class="jumbo"
             id="clear"
@@ -24,7 +67,7 @@
             /
           </button>
           <button
-            id="multiply"
+            id="multiplyy"
             value="x"
             style="background: rgb(102, 102, 102)"
           >
@@ -54,5 +97,13 @@
         </div>
       </div>
     </div>
+    <script src="js/calculator.js"></script>
   </body>
+
+  <!-- <script src="https://cdn.tailwindcss.com"></script>
+  <!-- font awesome -->
+  <script
+    src="https://kit.fontawesome.com/d7b7563d24.js"
+    crossorigin="anonymous"
+  ></script>
 </html>

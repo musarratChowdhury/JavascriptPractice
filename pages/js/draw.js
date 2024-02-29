@@ -1,8 +1,11 @@
+const proxyUrl = "https://corsproxy.io/?";
+const targetUrl = "https://brainasium.co.uk/feed/";
 const canvas = document.getElementById("draw-canvas");
 canvas.style.backgroundColor = "white";
 canvas.style.border = "1px solid black";
 const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
+let hungerData = null;
 
 let characterImg = null;
 let ch2;
@@ -44,6 +47,10 @@ window.onload = function () {
         ch2.movement();
         ch2.checkForBoundaries();
 
+        if (hungerData) {
+          drawHungerBar(hungerData, ctx);
+        }
+
         // Update the last update time
         lastUpdateTime = currentTime - (deltaTime % updateInterval);
       }
@@ -57,6 +64,74 @@ window.onload = function () {
   };
 };
 
+setInterval(() => {
+  fetchData();
+}, 100000);
+
+fetchData();
+
+function drawHungerBar(data, ctx) {
+  const hungerPercentage = data.hunger; // Assuming hunger is a value between 0 and 100
+
+  // Dimensions and styling for the hunger bar
+  const barY = 80;
+  const barWidth = 600;
+  const barHeight = 40;
+  const barPadding = 5;
+  const barX = canvas.width / 2 - barWidth / 2 + barPadding;
+  const barColor = "green"; // Red color for the hunger bar
+
+  // Calculate the width of the hunger bar based on the percentage
+  const filledWidth = (barWidth * hungerPercentage) / 100;
+
+  // Draw the outline of the bar
+  ctx.fillStyle = "tomato";
+  ctx.fillRect(barX, barY, barWidth, barHeight);
+
+  // Draw the filled portion representing hunger
+  ctx.fillStyle = barColor;
+  ctx.fillRect(
+    barX,
+    barY + barPadding,
+    filledWidth - barPadding * 2,
+    barHeight - barPadding * 2
+  );
+  drawText(
+    ctx,
+    `Day : ${data.day}`,
+    barX + barWidth / 2 - 100,
+    barY - 30,
+    "100px Arcade"
+  );
+}
+function drawText(
+  ctx,
+  text,
+  x,
+  y,
+  fontSize = "16px Arial",
+  color = "#000",
+  textAlign = "left"
+) {
+  ctx.font = fontSize;
+  ctx.fillStyle = color;
+  ctx.textAlign = textAlign;
+  ctx.fillText(text, x, y);
+}
+async function fetchData() {
+  try {
+    const apiUrl = `${proxyUrl}${targetUrl}`;
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    // console.log(data);
+    hungerData = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+}
 class SPRITEIMAGE {
   constructor(
     srcX,
