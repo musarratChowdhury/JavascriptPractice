@@ -27,15 +27,25 @@ function AddOne(arr) {
 
   return arr.map((x) => (x = x + 1));
 }
+//...
 
-function addM(arr) {
+// soheba start
+let arr1 = ["soheba", "Muhit", "sadit"];
+function addM(arr1) {
   //each element + "M"
-}
+  console.log("before", arr1);
 
+  return arr1.map((y) => (y = y + "M"));
+}
+let result = addM(arr1);
+console.log("after", result);
+
+//soheba done
+
+///....
 function changeArr(arr) {
   arr.push("hello");
 }
-
 function changeValue(x) {
   x = 1000;
   return x;
